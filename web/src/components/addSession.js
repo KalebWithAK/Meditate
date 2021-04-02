@@ -21,7 +21,12 @@ class AddSession extends React.Component {
     }
 
     addSession = (e) => {
-        const { date, minutes } = this.state;
+        let { date, minutes } = this.state;
+
+        if (minutes < 1) {
+            minutes = 1;
+        }
+        
         e.preventDefault();
 
         const newSession = { date, minutes };
@@ -40,16 +45,26 @@ class AddSession extends React.Component {
         this.setState({ minutes: parseInt(e.target.value) });
     }
 
+    handleIncrement = () => {
+        this.setState({ minutes: this.state.minutes + 2 });
+        console.log(this.state.minutes)
+    }
+
+    handleDecrement = () => {
+        this.setState({ minutes: this.state.minutes - 2 });
+        console.log(this.state.minutes)
+    }
+
     render() {
         return (
             <FormControl display='flex' flexDirection='column' alignItems='center'>
                 <FormLabel>Session Duration</FormLabel>
                 <NumberInput defaultValue={10} step={2} size='sm' maxW='135' marginBottom='2' min={1}>
-                    <NumberInputField onChange={ this.handleMinutesChange } />
-                    <NumberInputStepper>
-                        <NumberIncrementStepper />
-                        <NumberDecrementStepper />
-                    </NumberInputStepper>
+                    <NumberInputField onChange={ this.handleMinutesChange } textAlign='center' />
+                    {/*<NumberInputStepper>
+                        <NumberIncrementStepper onClick={ this.handleIncrement } />
+                        <NumberDecrementStepper onClick={ this.handleDecrement } />
+                    </NumberInputStepper>*/}
                 </NumberInput>
                 <Button onClick={ this.addSession }>Add Session</Button>
             </FormControl>
