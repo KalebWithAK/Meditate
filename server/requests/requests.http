@@ -1,0 +1,24 @@
+GET http://localhost:3001/
+
+###
+
+GET http://localhost:3001/meditationdata
+
+###
+
+POST http://localhost:3001/addsession
+content-Type: application/json
+
+{
+   "date": "2021-04-1",
+   "minutes": "20"
+}
+
+###
+
+GET http://localhost:3001/startsession
+
+
+###
+
+GET http://localhost:3001/endsession
