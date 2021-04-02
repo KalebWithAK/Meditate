@@ -2,6 +2,7 @@ import React from 'react';
 
 import MeditationLinechart from '../components/meditationLinechart.js';
 import AddSession from '../components/addSession.js'
+import Features from '../components/features.js';
 
 class Home extends React.Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class Home extends React.Component {
                 <h1>Meditation</h1>
                 <AddSession refresh={this.refresh} />
                 <MeditationLinechart key={this.state.refreshed} />
+                <Features />
             </div>
         );
     }
