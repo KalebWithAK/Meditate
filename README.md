@@ -1,7 +1,7 @@
 ## Server
 
-#### cd server
-#### ./server.js
+#### `cd server`
+#### `./server.js`
 
 ## Web
 
